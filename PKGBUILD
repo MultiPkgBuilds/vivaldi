@@ -1,6 +1,6 @@
 pkgname=vivaldi
 pkgver=1.7.735.46
-pkgrel=1
+pkgrel=2
 pkgdesc='The web browser from Vivaldi / Vivaldi browser is made for power users in mind by people who love the Web.'
 arch=('x86_64')
 url="https://vivaldi.com"
@@ -32,6 +32,7 @@ package() {
 	rm "$pkgdir"/opt/vivaldi/product_logo_*.png
 	ln -s /usr/lib/chromium/libs/libffmpeg.so "$pkgdir"/opt/vivaldi/lib/libffmpeg.so
 	ln -sf /opt/google/chrome-unstable/libwidevinecdm.so "$pkgdir"/opt/vivaldi/libwidevinecdm.so
+	mv -f vivaldi-stable.desktop "$pkgdir"/usr/share/applications/vivaldi-stable.desktop
 	#Correct rights
 	chmod 4755 "${pkgdir}/opt/vivaldi/vivaldi-sandbox"
 	msg "Add a hack to modify UI"
